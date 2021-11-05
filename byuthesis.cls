@@ -133,7 +133,7 @@
     \phantomsection
     \begin{center}
     \begin{singlespacing}
-    \textbf{\MakeUppercase{\@title}}\\
+    \textbf{\@title}\\
     \vspace{10\baselineskip}
     A Dissertation\\
     Presented to\\
