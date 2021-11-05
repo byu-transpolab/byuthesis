@@ -2,9 +2,11 @@
 *.aux
 *.bcf
 *.blg
+*.bbl
 *.fdb_latexmk
 *.fls
 *.glo
+*.glsdefs
 *.ist
 *.log
 *.lot
