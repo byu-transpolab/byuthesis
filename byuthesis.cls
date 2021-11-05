@@ -88,10 +88,11 @@
     }
 
 % tokens for author info
+\newcommand{\doctype}[1]{\gdef\@doctype{#1}}
+\newcommand{\degree}[1]{\gdef\@degree{#1}}
+\newcommand{\committeeMembers}[1]{\gdef\@committeeMembers{#1}}
 \newcommand{\approvaldate}[1]{\gdef\@approvaldate{#1}}%
 \newcommand{\@approvaldate}{\@latex@warning@no@line{No \noexpand\approvaldate given}}
-\newcommand{\school}[1]{\gdef\@school{#1}}%
-\newcommand{\@school}{\@latex@warning@no@line{No \noexpand\school given}}
 \newcommand{\department}[1]{\gdef\@department{#1}}%
 \newcommand{\@department}{\@latex@warning@no@line{No \noexpand\department given}}
 \makeatother
@@ -125,35 +126,33 @@
 
 % ------------------ Title Page ------------------
 \makeatletter
-% args: {month}{year}
-\newcommand{\makeTitlePage}[2]{
+% args:{year}
+\newcommand{\makeTitlePage}[1]{
     \pagestyle{empty}
     \pagenumbering{roman}
     \currentpdfbookmark{Title Page}{titlePage}
     \phantomsection
     \begin{center}
+    \@title\\
     \begin{singlespacing}
-    \textbf{\@title}\\
-    \vspace{10\baselineskip}
-    A Dissertation\\
-    Presented to\\
-    The Academic Faculty\\
-    \vspace{3\baselineskip}
-    By\\
     \vspace{3\baselineskip}
     \@author\\
     \vspace{3\baselineskip}
-    In Partial Fulfillment\\
-    of the Requirements for the Degree\\
-    Doctor of Philosophy in the\\
-    \@school\\
-    \@department\\
-    \vspace{3\baselineskip}
-    Georgia Institute of Technology\\
-    \vspace{\baselineskip}
-    #1 \ #2
+    A \@doctype \ submitted to the faculty of\\
+    Brigham Young University\\
+    In partial fulfillment of the Requirements for the degree of\\
+    \vspace{1\baselineskip}
+    \@degree\\
     \vfill
-    \copyright \ \@author \ #2
+    \@committeeMembers\\
+    \vspace{6\baselineskip}
+    \@department\\
+    \vspace{\baselineskip}
+    Brigham Young University\\
+    \vspace{\baselineskip}
+    \vfill
+    Copyright \copyright \ #1 \ \@author \\
+    All Rights Reserved
     \end{singlespacing}
     \end{center}
 }
