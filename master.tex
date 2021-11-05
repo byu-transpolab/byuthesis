@@ -1,0 +1,43 @@
+\documentclass{byuthesis}
+
+\title{Building a thesis in LaTeX}
+
+\author{Cosmo Cougar}
+
+\approvaldate{January 1, 2020}
+
+\school{School of Physics}
+
+\department{Department of Astronomical Studies}
+
+\bibliography{references}
+
+% document body
+\begin{document}
+
+\makeTitlePage{Jan}{2020}
+\makeEpigraph{I'm not super. Any talents I have, I worked for -- it seems a long time since I thought of myself as a hero.}{Oliver Queen}
+\makeDedication{For my cousin Kara}
+
+\begin{frontmatter}
+    \input{acknowledgments}
+    \makeTOC
+    \makeListOfTables
+    \makeListOfFigures
+    \input{abbrevs}
+    \input{summary}
+\end{frontmatter}
+
+\begin{thesisbody}
+    \input{chapter1.tex}
+    \input{chapter2.tex}
+    % \input{chapters/chapter3}
+    % \input{chapters/chapter4}
+    % \input{chapters/chapter5.tex}
+    \begin{theappendices}
+      \input{appendixA.tex}
+    \end{theappendices}
+    \makeBibliography
+\end{thesisbody}
+
+\end{document}
