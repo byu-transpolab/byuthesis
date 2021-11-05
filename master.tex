@@ -1,4 +1,5 @@
-\documentclass{byuthesis}
+\documentclass[twoside]{byuthesis}
+
 
 \title{Building a Thesis in \LaTeX, which can be \\ Wrapped if Long.}
 \author{Cosmo Cougar}
@@ -9,21 +10,19 @@
 \committeeMembers{Brigham Young\\ Karl G. Maeser\\ Harvey Fletcher}
 
 \bibliography{references}
-
+\usepackage{lipsum}
 % document body
 \begin{document}
 
 \makeTitlePage{2021}
-\makeEpigraph{I'm not super. Any talents I have, I worked for -- it seems a long time since I thought of myself as a hero.}{Oliver Queen}
-\makeDedication{For my cousin Kara}
+
 
 \begin{frontmatter}
-    \input{acknowledgments}
-    \makeTOC
+\input{summary.tex}
+
     \makeListOfTables
     \makeListOfFigures
     \input{abbrevs}
-    \input{summary}
 \end{frontmatter}
 
 \begin{thesisbody}

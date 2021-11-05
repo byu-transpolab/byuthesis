@@ -149,12 +149,37 @@
     \@department\\
     \vspace{\baselineskip}
     Brigham Young University\\
-    \vspace{\baselineskip}
     \vfill
     Copyright \copyright \ #1 \ \@author \\
     All Rights Reserved
     \end{singlespacing}
     \end{center}
+}
+
+
+% ------------------- Abstract Page ------------------
+
+\newcommand{\makeAbstractPage}[2]{
+  \clearpage
+  \pagestyle{empty}
+  \begin{singlespacing}
+  \setlength{\parskip}{1em}
+  \begin{center}
+    \MakeUppercase{abstract}\\
+    \vspace{\baselineskip}
+    \@title\\
+    \vspace{\baselineskip}
+    \@author\\
+    \@department, BYU\\
+    \@degree\\
+    \vspace{\baselineskip}
+  \end{center}
+
+  #1
+  \vfill
+  \noindent Keywords: #2
+  \end{singlespacing}
+  \setlength{\parskip}{0em}
 }
 
 % ------------------ approval page environment/formatting ------------------
@@ -305,16 +330,6 @@ Date approved: \@approvaldate
 \printacronyms[nonumberlist,title={List of Acronyms}]
 \clearpage
 \doublespacing
-}
-
-% ------------------ summary environment definition ------------------
-\newenvironment{summary}{
-    \clearpage
-    \begin{centering}
-    \textbf{SUMMARY}\\
-    \vspace{\baselineskip}
-    \end{centering}
-}{
 }
 
 % ------------------ appendix environment definition ------------------
