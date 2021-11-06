@@ -16,6 +16,7 @@
 \RequirePackage{setspace}  % use this package to set linespacing as desired
 \RequirePackage{newtxtext} % use times new roman font
 \RequirePackage{newtxmath}
+\RequirePackage{booktabs}
 \RequirePackage{indentfirst}
 \RequirePackage[explicit]{titlesec}  % title control and formatting
 \RequirePackage[titles]{tocloft}  % table of contents control and formatting
