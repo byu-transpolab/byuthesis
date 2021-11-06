@@ -16,6 +16,7 @@
 \RequirePackage{setspace}  % use this package to set linespacing as desired
 \RequirePackage{newtxtext} % use times new roman font
 \RequirePackage{newtxmath}
+\RequirePackage{indentfirst}
 \RequirePackage[explicit]{titlesec}  % title control and formatting
 \RequirePackage[titles]{tocloft}  % table of contents control and formatting
 \RequirePackage{ifoddpage} % logical page parity checking, used with rotating
@@ -31,6 +32,8 @@
 \RequirePackage{subcaption} % allows subfigures in a reasonable way, plays nice with caption
 \RequirePackage[acronym,nogroupskip,nopostdot]{glossaries} % only for list of acronyms
 \RequirePackage{doi} % and this is laster, makes easier hyperlinking for doi sources
+
+\parindent=0.25in
 
 \sisetup{
     sticky-per=true,
@@ -176,7 +179,7 @@
     \@department, BYU\\
     \@degree\\
     \vspace{\baselineskip}
-  \end{center}
+  \end{center}\hspace{\parindent}
 }{
   \vfill
   \noindent Keywords: \@keywords
