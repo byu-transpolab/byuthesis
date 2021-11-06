@@ -118,7 +118,7 @@
     \titlespacing*{\chapter}
       {0pt}{0pt}{30pt}	% controls vertical margins on title
     \titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{##1}
-    \titleformat{\subsection}{\normalfont}{\uline{\thesubsection}}{0em}{\uline{\hspace{1em}##1}}
+    \titleformat{\subsection}{\normalfont\bfseries}{\thesubsection}{1em}{##1}
     \titleformat{\subsubsection}{\normalfont\itshape}{\thesubsection}{1em}{##1}
 }%
 {
