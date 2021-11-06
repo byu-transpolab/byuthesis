@@ -100,9 +100,11 @@
 
 % frontmatter environment, only handles title formatting
 \newenvironment{frontmatter}{%
-    \clearpage
+    \cleardoublepage
     \pagestyle{plain}
-    \titleformat{\chapter}[display]{\normalfont\bfseries\filcenter}{\chaptertitlename\ \thechapter}{0pt}{\MakeUppercase{##1}}
+    \titleformat{\chapter}[display]{\normalfont\filcenter}{\chaptertitlename\ \thechapter}{0pt}{\MakeUppercase{##1}}
+    \titlespacing*{\chapter}
+      {0pt}{0pt}{30pt}	% controls vertical margins on title
 }%
 {%
     \clearpage
@@ -110,19 +112,19 @@
 
 % thesisbody environment, handles text and other formatting
 \newenvironment{thesisbody}{%
-    \clearpage
+    \cleardoublepage
     \pagestyle{plain}
     \pagenumbering{arabic} % resumes page numbering after front matter
     \setcounter{page}{1} % set the page number appropriately
-    \titleformat{\chapter}[display]{\normalfont\bfseries\filcenter}{\MakeUppercase\chaptertitlename\ \thechapter}{0pt}{\MakeUppercase{##1}}  % spacing between titles
+    \titleformat{\chapter}{\normalfont\bfseries}{\thechapter}{1em}{\MakeUppercase{##1}}  % spacing between titles
     \titlespacing*{\chapter}
-      {0pt}{0pt}{30pt}	% controls vertical margins on title
+      {0.25in}{1in}{1in}	% controls vertical margins on title
     \titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{##1}
     \titleformat{\subsection}{\normalfont\bfseries}{\thesubsection}{1em}{##1}
     \titleformat{\subsubsection}{\normalfont\itshape}{\thesubsection}{1em}{##1}
 }%
 {
-    \clearpage
+    \cleardoublepage
 }
 
 % ------------------ Title Page ------------------
