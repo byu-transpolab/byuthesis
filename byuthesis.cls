@@ -94,6 +94,7 @@
 
 % tokens for author info
 \newcommand{\doctype}[1]{\gdef\@doctype{#1}}
+\newcommand{\copyyear}[1]{\gdef\@copyyear{#1}}
 \newcommand{\degree}[1]{\gdef\@degree{#1}}
 \newcommand{\keywords}[1]{\gdef\@keywords{#1}}
 \newcommand{\committeeMembers}[1]{\gdef\@committeeMembers{#1}}
@@ -132,10 +133,12 @@
     \cleardoublepage
 }
 
+
+
 % ------------------ Title Page ------------------
 \makeatletter
 % args:{year}
-\newcommand{\makeTitlePage}[1]{
+\renewenvironment{titlepage} {
     \pagestyle{empty}
     \pagenumbering{roman}
     \currentpdfbookmark{Title Page}{titlePage}
@@ -158,17 +161,19 @@
     \vspace{\baselineskip}
     Brigham Young University\\
     \vfill
-    Copyright \copyright \ #1 \ \@author \\
+    Copyright \copyright \ \@copyyear \ \@author \\
     All Rights Reserved
     \end{singlespacing}
     \end{center}
-}
+}{}
 
 
 % ------------------- Abstract Page ------------------
 \renewenvironment{abstract}{%
+  \thispagestyle{empty}
+  \titlepage
   \cleardoublepage
-  \pagestyle{empty}
+  \thispagestyle{empty}
   \begin{singlespacing}
   \setlength{\parskip}{1em}
   \begin{center}
@@ -197,6 +202,7 @@
 {
     \cleardoublepage
     \phantomsection
+    \pagestyle{empty}
     \begin{centering}
     ACKNOWLEDGMENTS\\
     \vspace{\baselineskip}
