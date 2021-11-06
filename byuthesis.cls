@@ -207,43 +207,6 @@
  }
  % ------ end little trick ------
 
-\newenvironment{approvalPage}[1]%
-{%
-\clearpage
-\columnsep=30pt
-\begin{singlespacing}
-\begin{center}
-\textbf{\MakeUppercase{\@title}}\\
-\end{center}
-\vfill
-% minipages depending on number of committee members
-\ifnum#1>3
-    \begin{minipage}[b]{\textwidth}
-    Thesis committee: \\
-    \begin{multicols}{2}
-\else
-    \hspace{0.5\textwidth}
-    \begin{minipage}[b]{0.5\textwidth}
-    Thesis committee: \\
-    \begin{multicols}{1}
-\fi
-}%
-{%
-\end{multicols}
-\end{minipage}
-\begin{flushright}
-Date approved: \@approvaldate
-\end{flushright}
-\end{singlespacing}
-}
-
-\newcommand{\committeeMember}[3]{
-    \filbreak
-    #1 \\
-    #2 \\
-    \textit{#3} \\
-    \\
-}
 \makeatother
 
 % ------------------ Epigraph ------------------
@@ -270,11 +233,11 @@ Date approved: \@approvaldate
 % ------------------ Acknowledgments environment/formatting ------------------
 \newenvironment{acknowledgments}
 {
-    \clearpage
+    \cleardoublepage
     \phantomsection
     \addcontentsline{toc}{chapter}{Acknowledgments}
     \begin{centering}
-    \textbf{ACKNOWLEDGMENTS}\\
+    ACKNOWLEDGMENTS\\
     \vspace{\baselineskip}
     \end{centering}
 }
