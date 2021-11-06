@@ -197,7 +197,6 @@
 {
     \cleardoublepage
     \phantomsection
-    \addcontentsline{toc}{chapter}{Acknowledgments}
     \begin{centering}
     ACKNOWLEDGMENTS\\
     \vspace{\baselineskip}
@@ -208,30 +207,23 @@
 }
 
 % --------------- table of contents formatting and command creation ---------------
+\renewcommand{\cftchapfont}{\normalfont}
+\renewcommand{\cftchappagefont}{\normalfont}
 \renewcommand{\cftchapdotsep}{\cftdotsep}  % add dot separators
-\renewcommand{\cftchapfont}{\bfseries}  % set title font weight
-\renewcommand{\cftchappagefont}{}  % set page number font weight
-\renewcommand{\cftchappresnum}{Chapter }
-\renewcommand{\cftchapaftersnum}{:}
-\renewcommand{\cftchapnumwidth}{5em}
-\renewcommand{\cftchapafterpnum}{\vskip\baselineskip} % set correct spacing for entries in single space environment
-\renewcommand{\cftsecafterpnum}{\vskip\baselineskip}  % set correct spacing for entries in single space environment
-\renewcommand{\cftsubsecafterpnum}{\vskip\baselineskip} % set correct spacing for entries in single space environment
-\renewcommand{\cftsubsubsecafterpnum}{\vskip\baselineskip} % set correct spacing for entries in single space environment
+\renewcommand{\cftbeforechapskip}{0pt}
+\renewcommand\cftdotsep{1}
 \newcommand{\makeTOC}{
     % format title font size and position (this also applies to list of figures and list of tables)
     \currentpdfbookmark{Table of Contents}{TOC}
     \renewcommand\contentsname{Table of Contents}
-    \begin{singlespace}
     \tableofcontents
-    \end{singlespace}
     \clearpage
 }
 
 % ------------------ List of Tables ------------------
 \newcommand{\makeListOfTables}{
-\phantomsection
-\addcontentsline{toc}{chapter}{List of Tables}
+\cleardoublepage
+\addcontentsline{toc}{chapter}{LIST OF TABLES}
 \begin{singlespace}
 \setlength\cftbeforetabskip{\baselineskip}  % manually set spacing between entries
 \listoftables
@@ -241,8 +233,8 @@
 
 % ------------------ List of Figures ------------------
 \newcommand{\makeListOfFigures}{
-\phantomsection
-\addcontentsline{toc}{chapter}{List of Figures}
+\cleardoublepage
+\addcontentsline{toc}{chapter}{LIST OF FIGURES}
 \begin{singlespace}
 \setlength\cftbeforefigskip{\baselineskip}  % manually set spacing between entries
 \listoffigures
@@ -252,9 +244,9 @@
 
 % ------------------ List of Acronyms ------------------
 \newcommand{\makeListOfAcronyms}{
-\phantomsection
+\cleardoublepage
 \singlespacing
-\addcontentsline{toc}{chapter}{List of Acronyms}
+\addcontentsline{toc}{chapter}{LIST OF ACRONYMS}
 \printacronyms[nonumberlist,title={List of Acronyms}]
 \clearpage
 \doublespacing
