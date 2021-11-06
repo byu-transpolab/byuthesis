@@ -91,6 +91,7 @@
 % tokens for author info
 \newcommand{\doctype}[1]{\gdef\@doctype{#1}}
 \newcommand{\degree}[1]{\gdef\@degree{#1}}
+\newcommand{\keywords}[1]{\gdef\@keywords{#1}}
 \newcommand{\committeeMembers}[1]{\gdef\@committeeMembers{#1}}
 \newcommand{\approvaldate}[1]{\gdef\@approvaldate{#1}}%
 \newcommand{\@approvaldate}{\@latex@warning@no@line{No \noexpand\approvaldate given}}
@@ -161,8 +162,7 @@
 
 
 % ------------------- Abstract Page ------------------
-
-\newcommand{\makeAbstractPage}[2]{
+\renewenvironment{abstract}{%
   \cleardoublepage
   \pagestyle{empty}
   \begin{singlespacing}
@@ -177,58 +177,16 @@
     \@degree\\
     \vspace{\baselineskip}
   \end{center}
-
-  #1
+}{
   \vfill
-  \noindent Keywords: #2
+  \noindent Keywords: \@keywords
   \end{singlespacing}
   \setlength{\parskip}{0em}
+
 }
 
-% ------------------ approval page environment/formatting ------------------
-
-% If for whatever reason your approval page looks odd, comment out the lines below and use the page from the old template. But this approach *should* work.
-% the following lines are solely a trick to make the approval page multicolumn environment work right (thanks LaTeX stackexchange contributors)
-\let\multicolmulticols\multicols
-\let\endmulticolmulticols\endmulticols
-\RenewDocumentEnvironment{multicols}{mO{}}
- {%
-  \ifnum#1=1
-    #2%
-  \else % More than 1 column
-    \multicolmulticols{#1}[#2]
-  \fi
- }
- {%
-  \ifnum#1=1
-  \else % More than 1 column
-    \endmulticolmulticols
-  \fi
- }
- % ------ end little trick ------
 
 \makeatother
-
-% ------------------ Epigraph ------------------
-\newcommand{\makeEpigraph}[2]{
-\clearpage
-\begin{center}
-\vspace*{\fill}
-#1\\
-\textit{#2}
-\vspace*{\fill}
-\end{center}
-}
-
-% ------------------ Dedication ------------------
-\newcommand{\makeDedication}[1]{
-\clearpage
-\begin{center}
-\vspace*{\fill}
-#1\\
-\vspace*{\fill}
-\end{center}
-}
 
 % ------------------ Acknowledgments environment/formatting ------------------
 \newenvironment{acknowledgments}

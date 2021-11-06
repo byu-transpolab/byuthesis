@@ -2,6 +2,7 @@
 
 
 \title{Building a Thesis in \LaTeX, which can be \\ Wrapped if Long.}
+\keywords{engineering, optimization, document creation}
 \author{Cosmo Cougar}
 
 \department{Department of Civil and Construction Engineering}
@@ -15,12 +16,12 @@
 \begin{document}
 
 \makeTitlePage{2021}
-\input{summary.tex}
+\input{abstract.tex}
 \input{acknowledgments.tex}
 
 \begin{frontmatter}
 
-
+    \makeTOC
     \makeListOfTables
     \makeListOfFigures
     \input{abbrevs}
@@ -29,11 +30,10 @@
 \begin{thesisbody}
     \input{chapter1.tex}
     \input{chapter2.tex}
-    % \input{chapters/chapter3}
-    % \input{chapters/chapter4}
-    % \input{chapters/chapter5.tex}
+    % more chapters can be added
     \begin{theappendices}
-      \input{appendixA.tex}
+    \input{appendixA.tex}
+    % so can more appendices!
     \end{theappendices}
     \makeBibliography
 \end{thesisbody}
