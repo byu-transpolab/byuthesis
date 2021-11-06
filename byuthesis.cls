@@ -160,7 +160,7 @@
 % ------------------- Abstract Page ------------------
 
 \newcommand{\makeAbstractPage}[2]{
-  \clearpage
+  \cleardoublepage
   \pagestyle{empty}
   \begin{singlespacing}
   \setlength{\parskip}{1em}
