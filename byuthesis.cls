@@ -14,7 +14,8 @@
 \RequirePackage[letterpaper, left=1.5in, right=1in, top=1in, bottom=1in]{geometry}
 \RequirePackage{multicol} % for multicolumn environments
 \RequirePackage{setspace}  % use this package to set linespacing as desired
-\RequirePackage{times} % use times new roman font
+\RequirePackage{newtxtext} % use times new roman font
+\RequirePackage{newtxmath}
 \RequirePackage[explicit]{titlesec}  % title control and formatting
 \RequirePackage[titles]{tocloft}  % table of contents control and formatting
 \RequirePackage{ifoddpage} % logical page parity checking, used with rotating
