@@ -27,24 +27,24 @@
 
 \input{abstract.tex}
 \input{acknowledgments.tex}
+\input{abbrevs.tex}
 
-\begin{frontmatter}
+\makefrontmatter
 
-    \makeTOC
-    \makeListOfTables
-    \makeListOfFigures
-    \input{abbrevs}
-\end{frontmatter}
+% start body of thesis
+\thesisbody
+\input{chapter1.tex}
+\input{chapter2.tex}
+% more chapters can be added
 
-\begin{thesisbody}
-    \input{chapter1.tex}
-    \input{chapter2.tex}
-    % more chapters can be added
-    \begin{theappendices}
-    \input{appendixA.tex}
+
+% start references
+\makeBibliography
+
+% start appendices
+\appendix
+\input{appendixA.tex}
     % so can more appendices!
-    \end{theappendices}
-    \makeBibliography
-\end{thesisbody}
+
 
 \end{document}
