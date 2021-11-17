@@ -175,6 +175,8 @@
   \cleardoublepage
   \thispagestyle{empty}
   \begin{singlespacing}
+  \currentpdfbookmark{Abstract}{abstract}
+  \addcontentsline{toc}{chapter}{Abstract}
   \setlength{\parskip}{1em}
   \begin{center}
     \MakeUppercase{abstract}\\
@@ -200,9 +202,12 @@
 % ------------------ Acknowledgments environment/formatting ------------------
 \newenvironment{acknowledgments}
 {
+    \thispagestyle{empty}
     \cleardoublepage
     \phantomsection
-    \pagestyle{empty}
+    \thispagestyle{empty}
+    \currentpdfbookmark{Acknowledgments}{acknowledgments}
+    \addcontentsline{toc}{chapter}{Acknowledgments}
     \begin{centering}
     ACKNOWLEDGMENTS\\
     \vspace{\baselineskip}
@@ -221,15 +226,14 @@
 \newcommand{\makeTOC}{
     % format title font size and position (this also applies to list of figures and list of tables)
     \currentpdfbookmark{Table of Contents}{TOC}
-    \renewcommand\contentsname{Table of Contents}
+    \addcontentsline{toc}{chapter}{Table of Contents}
     \tableofcontents
-    \clearpage
 }
 
 % ------------------ List of Tables ------------------
 \newcommand{\makeListOfTables}{
 \cleardoublepage
-\addcontentsline{toc}{chapter}{LIST OF TABLES}
+\addcontentsline{toc}{chapter}{List of Tables}
 \begin{singlespace}
 \setlength\cftbeforetabskip{\baselineskip}  % manually set spacing between entries
 \listoftables
@@ -240,7 +244,7 @@
 % ------------------ List of Figures ------------------
 \newcommand{\makeListOfFigures}{
 \cleardoublepage
-\addcontentsline{toc}{chapter}{LIST OF FIGURES}
+\addcontentsline{toc}{chapter}{List of Figures}
 \begin{singlespace}
 \setlength\cftbeforefigskip{\baselineskip}  % manually set spacing between entries
 \listoffigures
@@ -254,9 +258,20 @@
 \singlespacing
 \addcontentsline{toc}{chapter}{LIST OF ACRONYMS}
 \printacronyms[nonumberlist,title={List of Acronyms}]
-\clearpage
 \doublespacing
 }
+
+
+% ------------------ Do all FrontMatter ------------------
+\newcommand{\makefrontmatter}{
+  \begin{frontmatter}
+  \makeTOC
+  \makeListOfTables
+  \makeListOfFigures
+  %\makeListOfAcronyms
+  \end{frontmatter}
+}
+
 
 % ------------------ appendix environment definition ------------------
 % A note on layout: in the Chicago (and by extension IEEE) style manual, appendices are first in the end matter, then bibliography or references. In APA, bibliography is first, then appendices. The thesis manual on which this template is based assumes the Chicago convention.
