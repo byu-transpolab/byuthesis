@@ -22,7 +22,6 @@
 \RequirePackage[titles]{tocloft}  % table of contents control and formatting
 \RequirePackage{ifoddpage} % logical page parity checking, used with rotating
 \RequirePackage{rotating}  % for rotated, landscape images
-\RequirePackage[backend=biber,sorting=none,bibstyle=ieee]{biblatex}  % reference manager
 \RequirePackage[toc,page]{appendix}  % for appendices
 \RequirePackage[normalem]{ulem}  % for underlining text
 \RequirePackage{url} % in case explicit URL's are needed
@@ -47,7 +46,6 @@
 \makeglossaries % process glossaries
 \urlstyle{same} % uses the text font, not a monospace one, for URLs
 \hbadness=9000 % suppress some hbox warnings
-\setcounter{biburlnumpenalty}{99999} % ensure bibliography URLs don't run far outside margins)
 
 % hyperlink coloring, or lack thereof
 \hypersetup{
@@ -107,8 +105,7 @@
 % frontmatter environment, only handles title formatting
 \newenvironment{frontmatter}{%
     \cleardoublepage
-    \pagestyle{plain}
-    \titleformat{\chapter}[display]{\normalfont\filcenter}{\chaptertitlename\ \thechapter}{0pt}{\MakeUppercase{##1}}
+        \titleformat{\chapter}[display]{\normalfont\filcenter}{\chaptertitlename\ \thechapter}{0pt}{\MakeUppercase{##1}}
     \titlespacing*{\chapter}
       {0pt}{0pt}{30pt}	% controls vertical margins on title
 }%
@@ -116,8 +113,7 @@
     \clearpage
 }
 
-% thesisbody environment, handles text and other formatting
-\newenvironment{thesisbody}{%
+\newcommand{\thesisbody}{
     \cleardoublepage
     \pagestyle{plain}
     \pagenumbering{arabic} % resumes page numbering after front matter
@@ -128,10 +124,18 @@
     \titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{##1}
     \titleformat{\subsection}{\normalfont\bfseries}{\thesubsection}{1em}{##1}
     \titleformat{\subsubsection}{\normalfont\itshape}{\thesubsection}{1em}{##1}
-}%
-{
-    \cleardoublepage
+
 }
+
+\makeatletter
+\renewcommand\appendix{\par
+  \setcounter{chapter}{0}%
+  \setcounter{section}{0}%
+  \gdef\@chapapp{\appendixname}%
+  \gdef\thechapter{\@Alph\c@chapter}
+  \titleformat{\chapter}{\normalfont\bfseries}{APPENDIX \thechapter}{1em}{\MakeUppercase{##1}}  % spacing between titles
+}
+\makeatother
 
 
 
@@ -139,9 +143,8 @@
 \makeatletter
 % args:{year}
 \renewenvironment{titlepage} {
-    \pagestyle{empty}
-    \pagenumbering{roman}
     \currentpdfbookmark{Title Page}{titlePage}
+    \addcontentsline{toc}{chapter}{Title Page}
     \phantomsection
     \begin{center}
     \@title\\
@@ -171,6 +174,7 @@
 % ------------------- Abstract Page ------------------
 \renewenvironment{abstract}{%
   \thispagestyle{empty}
+  \pagenumbering{roman}
   \titlepage
   \cleardoublepage
   \thispagestyle{empty}
@@ -193,7 +197,7 @@
   \noindent Keywords: \@keywords
   \end{singlespacing}
   \setlength{\parskip}{0em}
-
+  \thispagestyle{empty}
 }
 
 
@@ -216,6 +220,7 @@
 {
     \clearpage
 }
+
 
 % --------------- table of contents formatting and command creation ---------------
 \renewcommand{\cftchapfont}{\normalfont}
@@ -281,22 +286,11 @@
 \newenvironment{theappendices}{
     \bookmarksetup{depth=0,open}
     \addtocontents{toc}{\setcounter{tocdepth}{1}}
-    \renewcommand{\@chap@pppage}{%
-        \clear@ppage
-        \addappheadtotoc
-        \thispagestyle{empty}%
-        \if@twocolumn\onecolumn\@tempswatrue\else\@tempswafalse\fi
-        \null\vfil
-        \markboth{}{}%
-        {\centering
-        \interlinepenalty \@M
-        \normalfont
-        \Huge \bfseries \appendixpagename\par}%
-        \if@dotoc@pp
-        \fi
-    }
     \bookmarksetupnext{level=part}
     \begin{appendices}
+    \titleformat{\chapter}{\normalfont\bfseries}{\thechapter}{1em}{\MakeUppercase{##1}}
+    % spacing between titles \titlespacing*{\chapter} {0.25in}{1in}{1in}
+    % controls vertical margins on title
     \addtocontents{toc}{\protect\renewcommand{\protect\cftsecpresnum}{\appendixname\space}}
     \addtocontents{toc}{\protect\renewcommand{\protect\cftsecnumwidth}{5.75em}}
     \addtocontents{toc}{\protect\renewcommand{\protect\cftsecaftersnum}{:}}
@@ -315,26 +309,13 @@
 
 % I am only leaving these \AtEveryBibitem lines in because they were in the original template when I downloaded it. Change these at your own leisure.
 
-% prevent certain fields in references from printing in bibliography
-\AtEveryBibitem{\clearfield{issn}}
-\AtEveryBibitem{\clearlist{issn}}
-\AtEveryBibitem{\clearfield{language}}
-\AtEveryBibitem{\clearlist{language}}
-\AtEveryBibitem{\clearfield{doi}}
-\AtEveryBibitem{\clearlist{doi}}
-\AtEveryBibitem{\clearfield{url}}
-\AtEveryBibitem{\clearlist{url}}
-\AtEveryBibitem{%
-\ifentrytype{online}{}
-    {\clearfield{urlyear}\clearfield{urlmonth}\clearfield{urlday}}}
-
 \newcommand{\makeBibliography}{
-    \clearpage
+    \cleardoublepage
     \bookmarksetupnext{level=part}
     \phantomsection
     \addcontentsline{toc}{chapter}{References}
     \begin{centering}
-    \textbf{REFERENCES}\\
+    REFERENCES\\
     \end{centering}
     \begin{singlespace}  % use single-line spacing for multi-line text within a single reference
     \setlength\bibitemsep{\baselineskip}  % manually set separation between items in bibliography to double space
