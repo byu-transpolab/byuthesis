@@ -227,7 +227,8 @@
 \renewcommand{\cftchappagefont}{\normalfont}
 \renewcommand{\cftchapdotsep}{\cftdotsep}  % add dot separators
 \renewcommand{\cftbeforechapskip}{0pt}
-\renewcommand\cftdotsep{1}
+\renewcommand\cftdotsep{2}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftchapdotsep}}
 \newcommand{\makeTOC}{
     % format title font size and position (this also applies to list of figures and list of tables)
     \currentpdfbookmark{Table of Contents}{TOC}
