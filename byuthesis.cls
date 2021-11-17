@@ -32,6 +32,7 @@
 \RequirePackage{subcaption} % allows subfigures in a reasonable way, plays nice with caption
 \RequirePackage[acronym,nogroupskip,nopostdot]{glossaries} % only for list of acronyms
 \RequirePackage{doi} % and this is laster, makes easier hyperlinking for doi sources
+\RequirePackage{emptypage} % keeps page numbers off empty pages
 
 \parindent=0.25in
 
