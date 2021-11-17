@@ -120,7 +120,7 @@
     \setcounter{page}{1} % set the page number appropriately
     \titleformat{\chapter}{\normalfont\bfseries}{\thechapter}{1em}{\MakeUppercase{##1}}  % spacing between titles
     \titlespacing*{\chapter}
-      {0.25in}{1in}{1in}	% controls vertical margins on title
+      {0in}{1in}{1in}	% controls vertical margins on title
     \titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{##1}
     \titleformat{\subsection}{\normalfont\bfseries}{\thesubsection}{1em}{##1}
     \titleformat{\subsubsection}{\normalfont\itshape}{\thesubsection}{1em}{##1}
