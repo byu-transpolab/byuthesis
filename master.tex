@@ -2,17 +2,20 @@
 % For printing, use option twoside.
 % For electronic thesis, use option oneside
 
-
-\title{Building a Thesis in \LaTeX, which can be \\ Wrapped if Long.}
+\title{Building a Thesis in \LaTeX, which can have a \\
+  Wrapped Title if Long.}
 \keywords{engineering, optimization, document creation}
 \author{Cosmo Cougar}
+\copyyear{2021} % year for copyright
 
 \department{Department of Civil and Construction Engineering}
 \degree{Master of Science} % degree name
 \doctype{thesis} % thesis or dissertation
-\committeeMembers{Brigham Young\\ Karl G. Maeser\\ Harvey Fletcher}
 
-\bibliography{references}
+% Enter the committee members names as they should appear on the cover page.
+% Place new line markers \\ between members.
+\committeeMembers{Brigham Young, Chair\\ Karl G. Maeser\\ Harvey Fletcher}
+
 % bibliographies
 % https://www.overleaf.com/learn/latex/Articles/Getting_started_with_BibLaTeX
 \usepackage[style=apa,sorting=nyt]{biblatex}  % reference manager
@@ -22,7 +25,6 @@
 % document body
 \begin{document}
 
-\makeTitlePage{2021} % copyright year as argument
 \input{abstract.tex}
 \input{acknowledgments.tex}
 
