@@ -184,14 +184,13 @@
   \setlength{\parskip}{1em}
   \begin{center}
     \MakeUppercase{abstract}\\
-    \vspace{\baselineskip}
+    \vspace{12pt}
     \@title\\
-    \vspace{\baselineskip}
+    \vspace{12pt}
     \@author\\
     \@department, BYU\\
-    \@degree\\
-    \vspace{\baselineskip}
-  \end{center}\hspace{\parindent}
+    \@degree \end{center}
+    \vspace{-12pt}\hspace{0.2in}
 }{
   \vfill
   \noindent Keywords: \@keywords
