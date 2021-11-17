@@ -10,46 +10,52 @@ thesis formatting requirements. There is also a good deal of filler text to
 make it look like a full document. The first paragraphs of each section discuss
 real stuff.
 
-All the titles in this document use a defined style. Chapter should
-be used for chapter titles, section for sections, and subsection for
-second-level headings. Use the \verb+\chapter{}+ command for chapters,
-\verb+\section{}+ for sections, and \verb+\subsection{}+ for second-level
-headings.
+\subsection{Title Styles}
 
-\subsubsection{Additional outlines}
+All the titles in this document use a defined style.  Use the \verb+\chapter{}+
+command for chapters, \verb+\section{}+ for sections, and \verb+\subsection{}+
+for second-level headings.
+
+\subsubsection{Outline styles}
 
 The \texttt{byuthesis} class does define a third-level heading
 at \verb+\subsubsection{}+, but there are no formatting instructions on this so
-you might want to skip it.
+you probably want to skip it.
 
+\subsection{Filler}
 
-\lipsum[1]
+\lipsum[3]
+
+\section{Floating environments}
+
+\LaTeX allows users to create tables and insert figures into their documents.
+Floats should be at the top of the page or on their own pages, which \LaTeX will
+do automatically. Use the \LaTeX \ figure referencing / labels system to make your life easy. Labelled figures and tables will also be automatically
+added to the relevant list in the thesis frontmatter.
 
 \subsection{Figures}
 
 Figures
 can be included with the standard \LaTeX \ figure commands; every figure should
 be referred to in the text, such as the diagram of sudden infant death
-syndrome (SIDS) incidence rates in North Carolina show in Figure \ref{fig:ncplot}.
-Use the \LaTeX \ figure referencing / labels system to make your life easy.
-\LaTeX \ will also correctly position the table on the page, either at the
-top of a page or on its own page.
-
-Figure captions should be one or more sentences that end in a period.
+syndrome (SIDS) incidence rates in North Carolina show in \ref{fig:ncplot}.
+Figure captions should be one or more
+sentences that end in a period.
 
 \begin{figure}
   \includegraphics[width=\textwidth]{./images/ncplot}
   \caption{\label{fig:ncplot} Incidence of SIDS in North Carolina.}
 \end{figure}
 
-\lipsum[2]
 
 \subsection{Tables}
 
 Tables can also be included with the standard \LaTeX \ table commands, with
-references and labels. The thesis class equips the recommended you use the
+references and labels. The thesis class equips the recommended
 \texttt{booktabs} library, which includes commands to introduce horizontal
-rules in tables.
+rules in tables. Table captions should be like titles. Tables should also
+be referenced in the text, using the standard reference command to refer
+to \ref{tab:example}.
 
 \begin{table}
   \begin{center}
@@ -70,5 +76,5 @@ expleja   & 11180 & 8.0e-9 & 4.3 & 17348 & 1.5e-11 & 6.6 \\
 \end{center}
 \end{table}
 
-\subsubsection{Caption Styles}
+\section{Extra filler}
 \lipsum
