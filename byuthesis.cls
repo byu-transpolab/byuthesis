@@ -222,6 +222,7 @@
 
 
 % --------------- table of contents formatting and command creation ---------------
+\renewcommand{\contentsname}{TABLE OF CONTENTS}
 \renewcommand{\cftchapfont}{\normalfont}
 \renewcommand{\cftchappagefont}{\normalfont}
 \renewcommand{\cftchapdotsep}{\cftdotsep}  % add dot separators
