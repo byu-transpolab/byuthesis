@@ -144,8 +144,6 @@
 \makeatletter
 % args:{year}
 \renewenvironment{titlepage} {
-    \currentpdfbookmark{Title Page}{titlePage}
-    \addcontentsline{toc}{chapter}{Title Page}
     \phantomsection
     \begin{center}
     \@title\\
@@ -153,6 +151,7 @@
     \vspace{3\baselineskip}
     \@author\\
     \vspace{3\baselineskip}
+    \addcontentsline{toc}{chapter}{Title Page}
     A \@doctype \ submitted to the faculty of\\
     Brigham Young University\\
     In partial fulfillment of the Requirements for the degree of\\
@@ -180,10 +179,10 @@
   \cleardoublepage
   \thispagestyle{empty}
   \begin{singlespacing}
-  \currentpdfbookmark{Abstract}{abstract}
-  \addcontentsline{toc}{chapter}{Abstract}
   \setlength{\parskip}{1em}
   \begin{center}
+    \phantomsection
+    \addcontentsline{toc}{chapter}{Abstract}
     \MakeUppercase{abstract}\\
     \vspace{12pt}
     \@title\\
@@ -208,11 +207,10 @@
 {
     \thispagestyle{empty}
     \cleardoublepage
-    \phantomsection
     \thispagestyle{empty}
-    \currentpdfbookmark{Acknowledgments}{acknowledgments}
-    \addcontentsline{toc}{chapter}{Acknowledgments}
     \begin{centering}
+    \phantomsection
+    \addcontentsline{toc}{chapter}{Acknowledgments}
     ACKNOWLEDGMENTS\\
     \vspace{\baselineskip}
     \end{centering}
@@ -232,7 +230,7 @@
 \renewcommand{\cftchapleader}{\cftdotfill{\cftchapdotsep}}
 \newcommand{\makeTOC}{
     % format title font size and position (this also applies to list of figures and list of tables)
-    \currentpdfbookmark{Table of Contents}{TOC}
+\phantomsection
     \addcontentsline{toc}{chapter}{Table of Contents}
     \tableofcontents
 }
@@ -240,9 +238,10 @@
 % ------------------ List of Tables ------------------
 \newcommand{\makeListOfTables}{
 \cleardoublepage
-\addcontentsline{toc}{chapter}{List of Tables}
 \begin{singlespace}
 \setlength\cftbeforetabskip{\baselineskip}  % manually set spacing between entries
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Tables}
 \listoftables
 \end{singlespace}
 \clearpage
@@ -251,9 +250,10 @@
 % ------------------ List of Figures ------------------
 \newcommand{\makeListOfFigures}{
 \cleardoublepage
-\addcontentsline{toc}{chapter}{List of Figures}
 \begin{singlespace}
 \setlength\cftbeforefigskip{\baselineskip}  % manually set spacing between entries
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Figures}
 \listoffigures
 \end{singlespace}
 \clearpage
@@ -263,6 +263,7 @@
 \newcommand{\makeListOfAcronyms}{
 \cleardoublepage
 \singlespacing
+\phantomsection
 \addcontentsline{toc}{chapter}{LIST OF ACRONYMS}
 \printacronyms[nonumberlist,title={List of Acronyms}]
 \doublespacing
