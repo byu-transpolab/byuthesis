@@ -148,9 +148,9 @@
     \begin{center}
     \@title\\
     \begin{singlespacing}
-    \vspace{3\baselineskip}
+    \vfill
     \@author\\
-    \vspace{3\baselineskip}
+    \vfill
     \addcontentsline{toc}{chapter}{Title Page}
     A \@doctype \ submitted to the faculty of\\
     Brigham Young University\\
