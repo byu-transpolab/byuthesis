@@ -22,7 +22,7 @@
 \RequirePackage[titles]{tocloft}  % table of contents control and formatting
 \RequirePackage{ifoddpage} % logical page parity checking, used with rotating
 \RequirePackage{rotating}  % for rotated, landscape images
-\RequirePackage[toc,page]{appendix}  % for appendices
+\RequirePackage{appendix}  % for appendices
 \RequirePackage[normalem]{ulem}  % for underlining text
 \RequirePackage{url} % in case explicit URL's are needed
 \RequirePackage{siunitx} % several functions related to expressing units
@@ -289,19 +289,17 @@
 \makeatletter
 \newenvironment{theappendices}{
     \bookmarksetup{depth=0,open}
-    \addtocontents{toc}{\setcounter{tocdepth}{1}}
+    \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
     \bookmarksetupnext{level=part}
     \begin{appendices}
     \titleformat{\chapter}{\normalfont\bfseries}{\thechapter}{1em}{\MakeUppercase{##1}}
     % spacing between titles \titlespacing*{\chapter} {0.25in}{1in}{1in}
     % controls vertical margins on title
-    \addtocontents{toc}{\protect\renewcommand{\protect\cftsecpresnum}{\appendixname\space}}
-    \addtocontents{toc}{\protect\renewcommand{\protect\cftsecnumwidth}{5.75em}}
-    \addtocontents{toc}{\protect\renewcommand{\protect\cftsecaftersnum}{:}}
+    \addtocontents{toc}{\protect\renewcommand{\protect\cftchappresnum}{\appendixname\space}}
+    \addtocontents{toc}{\protect\renewcommand{\protect\cftchapnumwidth}{5.75em}}
+    \addtocontents{toc}{\protect\renewcommand{\protect\cftsecaftersnum}{\space}}
     \addtocontents{toc}{%
     \begingroup
-        \let\protect\l@chapter\protect\l@section
-        \let\protect\l@section\protect\l@subsection
     }
 }{
     \addtocontents{toc}{\endgroup}
