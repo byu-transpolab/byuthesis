@@ -154,12 +154,12 @@
     \addcontentsline{toc}{chapter}{Title Page}
     A \@doctype \ submitted to the faculty of\\
     Brigham Young University\\
-    In partial fulfillment of the Requirements for the degree of\\
+    in partial fulfillment of the requirements for the degree of\\
     \vspace{1\baselineskip}
     \@degree\\
     \vfill
     \@committeeMembers\\
-    \vspace{6\baselineskip}
+    \vfill
     \@department\\
     \vspace{\baselineskip}
     Brigham Young University\\
@@ -231,7 +231,7 @@
 \renewcommand{\cftchapleader}{\cftdotfill{\cftchapdotsep}}
 \newcommand{\makeTOC}{
     % format title font size and position (this also applies to list of figures and list of tables)
-\phantomsection
+    \phantomsection
     \addcontentsline{toc}{chapter}{Table of Contents}
     \tableofcontents
 }
