@@ -165,6 +165,7 @@
     Brigham Young University\\
     \vfill
     Copyright \copyright \ \@copyyear \ \@author \\
+    \vspace{1\baselineskip}
     All Rights Reserved
     \end{singlespacing}
     \end{center}
