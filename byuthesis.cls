@@ -120,11 +120,13 @@
     \setcounter{page}{1} % set the page number appropriately
     \titleformat{\chapter}{\normalfont\bfseries}{\thechapter}{1em}{\MakeUppercase{##1}}  % spacing between titles
     \titlespacing*{\chapter}
-      {0in}{1in}{1in}	% controls vertical margins on title
+      {0in}{0.67in}{0.67in} % controls vertical margins on title
     \titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{##1}
     \titleformat{\subsection}{\normalfont\bfseries}{\thesubsection}{1em}{##1}
-    \titleformat{\subsubsection}{\normalfont\itshape}{\thesubsection}{1em}{##1}
-
+    \titleformat{\subsubsection}{\normalfont\itshape}{\thesubsubsection}{1em}{##1}
+    \widowpenalty=10000
+    \clubpenalty=10000
+    \setcounter{secnumdepth}{4}
 }
 
 \makeatletter
@@ -221,7 +223,9 @@
 
 
 % --------------- table of contents formatting and command creation ---------------
-\renewcommand{\contentsname}{TABLE OF CONTENTS}
+\renewcommand{\contentsname}{\vspace{-0.9cm} \hfill TABLE OF CONTENTS \hfill \vspace{0.2cm}}
+\renewcommand{\listtablename}{\vspace{-0.55cm} \hfill LIST OF TABLES \hfill \vspace{0.2cm}}
+\renewcommand{\listfigurename}{\vspace{-0.55cm} \hfill LIST OF FIGURES \hfill \vspace{0.2cm}}
 \renewcommand{\cftchapfont}{\normalfont}
 \renewcommand{\cftchappagefont}{\normalfont}
 \renewcommand{\cftchapdotsep}{\cftdotsep}  % add dot separators
